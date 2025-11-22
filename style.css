@@ -1,0 +1,339 @@
+/*
+ * 주식회사 디에이치씨솔루션 웹사이트 통합 스타일 시트
+ * - 모든 페이지의 공통 디자인 및 개별 페이지 전용 디자인 포함
+ */
+
+/* ========================== [공통 기본 스타일] ========================== */
+body {
+    margin: 0;
+    font-family: 'Pretendard', sans-serif;
+    background-color: #f7f7f7; /* 밝고 깨끗한 배경 */
+    color: #333;
+    padding-top: 60px; /* 헤더 공간 확보 (모바일 기준) */
+    padding-bottom: 70px; /* 하단 메뉴 공간 확보 */
+    line-height: 1.6;
+}
+main {
+    padding: 20px 15px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+section {
+    background: #fff;
+    padding: 25px 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    text-align: left;
+}
+h2 {
+    color: #00bfa5;
+    text-align: center;
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
+    font-weight: 800;
+}
+h3 {
+    color: #444;
+    border-left: 5px solid #00bfa5;
+    padding-left: 10px;
+    margin-top: 30px;
+    font-weight: 700;
+}
+.solution-img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin: 15px 0;
+}
+
+/* ========================== [고정 헤더 (상단 메뉴)] ========================== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    z-index: 1000;
+    padding: 10px 0;
+    text-align: center;
+}
+header .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 15px;
+}
+header img { 
+    height: 35px;
+    width: auto;
+}
+.main-menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    border-top: 1px solid #eee;
+    background-color: #fff;
+    padding: 8px 0;
+}
+.menu-btn {
+    padding: 8px 15px;
+    color: #555;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: color 0.2s, background-color 0.2s;
+}
+.menu-btn.active {
+    color: #00bfa5;
+    font-weight: 700;
+    border-bottom: 2px solid #00bfa5;
+}
+
+/* ========================== [하단 고정 메뉴바 (모바일용)] ========================== */
+.fixed-bottom-menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #333;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+.bottom-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    height: 100%;
+    transition: background-color 0.2s;
+}
+.bottom-btn:hover {
+    background-color: #444;
+}
+.bottom-btn i {
+    font-size: 20px;
+    margin-bottom: 2px;
+}
+.bottom-btn.onestop { background-color: #00bfa5; }
+.bottom-btn.call { background-color: #ff5722; }
+.bottom-btn.home { background-color: #4CAF50; }
+
+/* ========================== [PC 환경 최적화 (768px 이상)] ========================== */
+@media (min-width: 768px) {
+    header {
+        padding: 5px 0;
+    }
+    header .logo-container {
+        justify-content: space-between;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+    .main-menu {
+        border-top: none;
+    }
+    header img {
+        height: 40px;
+    }
+    body {
+        padding-top: 100px;
+    }
+    .fixed-bottom-menu {
+        display: none;
+    }
+    .menu-btn {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
+
+/* ========================== [페이지별 전용 스타일] ========================== */
+
+/* 1. index.html (홈) */
+.value-propositions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+.value-item {
+    flex: 1 1 250px;
+    background: #eefaf9;
+    padding: 20px;
+    border-radius: 6px;
+    text-align: center;
+    min-height: 150px;
+}
+.value-item h4 {
+    color: #00897b;
+    margin-top: 0;
+    font-size: 18px;
+}
+.value-item p {
+    font-size: 14px;
+    color: #666;
+}
+.main-image {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* 2. onestop.html (원스톱 상담) */
+#quiz-section {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+.question {
+    display: none;
+    animation: fadeIn 0.4s ease-in-out;
+    min-height: 250px;
+    padding: 10px;
+}
+.question.active {
+    display: block;
+}
+.question h3 {
+    border-left: none;
+    color: #00bfa5;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+.option-button {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    color: #555;
+    padding: 10px 18px;
+    border-radius: 30px;
+    font-size: 15px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    flex-grow: 0;
+}
+.option-button.active {
+    background-color: #00bfa5;
+    color: #fff;
+    border: none;
+    box-shadow: 0 0 8px rgba(0, 191, 165, 0.5);
+}
+#summary {
+    background: #f0f9ff;
+    padding: 15px;
+    border: 1px dashed #00bfa5;
+    border-radius: 8px;
+    margin-top: 20px;
+    word-break: break-all;
+    text-align: left;
+    font-size: 14px;
+    color: #333;
+}
+#sendSMS {
+    background-color: #ff5722;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 15px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 20px 0;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(255, 87, 34, 0.4);
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* 3. solution.html (솔루션) */
+.solution-list {
+    list-style: none;
+    padding: 0;
+}
+.solution-list li {
+    background: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border-left: 5px solid #00bfa5;
+}
+.solution-list h4 {
+    color: #00897b;
+    margin-top: 0;
+    font-size: 17px;
+}
+
+/* 4. company.html (회사 소개) */
+address {
+    font-style: normal;
+    background: #f0f0f0;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 20px;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+/* 5. tech.html (기술) */
+.tech-feature {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+.tech-feature h4 {
+    color: #444;
+    font-size: 16px;
+    margin-top: 0;
+}
+
+/* 6. portfolio.html (실적) */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    padding-top: 10px;
+}
+.gallery img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+@media (min-width: 600px) {
+     .gallery img {
+         width: 48%;
+     }
+}
