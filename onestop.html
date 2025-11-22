@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>원스톱 상담 - 주식회사 디에이치씨솔루션</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@100;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="image/0005.png" alt="주식회사 디에이치씨솔루션 로고" />
+        </div>
+        <nav class="main-menu">
+            <a href="index.html" class="menu-btn">홈</a>
+            <a href="company.html" class="menu-btn">회사 소개</a>
+            <a href="solution.html" class="menu-btn">솔루션</a>
+            <a href="tech.html" class="menu-btn">기술</a>
+            <a href="portfolio.html" class="menu-btn">실적</a>
+            <a href="onestop.html" class="menu-btn active">원스톱 상담</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="quiz-section">
+            <h2>원스톱 맞춤 상담 서비스</h2>
+            <p style="color: #777; margin-bottom: 30px;">간단한 질문에 답하시면 전문 상담이 필요합니다. (5단계)</p>
+
+            <div class="question" id="q1">
+                <h3>1. 어떤 제품인가요?</h3>
+                <div class="options" id="opt1"></div>
+            </div>
+            <div class="question" id="q2">
+                <h3>2. 어떤 관리가 필요 한가요?</h3>
+                <div class="options" id="opt2"></div>
+            </div>
+            <div class="question" id="q3">
+                <h3>3. 어떤 공간 인가요?</h3>
+                <div class="options" id="opt3"></div>
+            </div>
+            <div class="question" id="q4">
+                <h3>4. 지역을 선택 해주세요 (광역/도)</h3>
+                <div class="options" id="opt4"></div>
+            </div>
+            <div class="question" id="q5">
+                <h3>5. 도시/시/군/구를 선택해주세요 (상세)</h3>
+                <div class="options" id="opt5"></div>
+            </div>
+            <div class="question" id="result">
+                <h3>상담 요청 내용 요약</h3>
+                <p id="summary">선택 내용을 확인하려면 이전 단계를 완료해주세요.</p>
+                <button id="sendSMS">📩 내용전달 및 전문상담 신청 (자동 문자 발송)</button>
+            </div>
+        </section>
+    </main>
+
+    <nav class="fixed-bottom-menu">
+        <a href="onestop.html" class="bottom-btn onestop">
+            <span style="font-size: 20px;">💬</span>
+            원스톱 상담
+        </a>
+        <a href="tel:01057138417" class="bottom-btn call">
+            <span style="font-size: 20px;">📞</span>
+            전화 상담
+        </a>
+        <a href="index.html" class="bottom-btn home">
+            <span style="font-size: 20px;">🏠</span>
+            홈 버튼
+        </a>
+    </nav>
+    
+    <script>
+        // --- [퀴즈 로직 (onestop.html의 JavaScript 코드는 여기에 유지됩니다)] ---
+        const questions = document.querySelectorAll('#quiz-section .question');
+        let current = 0;
+        let answers = [];
+        let selectedRegion = ''; 
+
+        function resetQuiz() {
+          questions.forEach(q => q.classList.remove('active'));
+          current = 0;
+          answers = [];
+          document.getElementById('summary').textContent = '선택 내용을 확인하려면 이전 단계를 완료해주세요.';
+          document.querySelectorAll('#quiz-section .option-button').forEach(b => b.classList.remove('active'));
+          document.getElementById('opt5').innerHTML = '';
+          selectedRegion = '';
+        }
+
+        const data = {
+          opt1: ['냉장고 (업소용)', '냉장고 (사무실/가정용)', '제빙기', '전자레인지', '커피머신','식기세척기','공조시설','기타 장비'],
+          opt2: ['분해청소 및 소독', '정기 위생관리', '예방 정비', '고장 진단', '중고 매입/판매','친환경 청소','곰팡이 제거','기타'],
+          opt3: ['사무실/기업체', '급식소/식당', '병원/의료기관', '카페/베이커리', '공장/제조시설','학교/관공서','호텔/리조트','기타'],
+          opt4: ['서울','경기','인천','강원','충북','충남','전북','전남','경북','경남','부산','대구','광주','대전','울산','세종','제주','해외','기타'],
+          cities: {
+            '서울': ['종로구', '중구', '용산구', '성동구', '광진구', '동대문구', '중랑구', '성북구', '강북구', '도봉구', '노원구', '은평구', '서대문구', '마포구', '양천구', '강서구', '구로구', '금천구', '영등포구', '동작구', '관악구', '서초구', '강남구', '송파구', '강동구'],
+            '경기': ['수원시', '고양시', '용인시', '성남시', '부천시', '안산시', '안양시', '화성시', '평택시', '의정부시', '파주시', '시흥시', '김포시', '광명시', '광주시', '군포시', '하남시', '오산시', '이천시', '양주시', '구리시', '안성시', '포천시', '의왕시', '여주시', '동두천시', '과천시', '가평군', '양평군', '연천군'],
+            '인천': ['계양구', '남동구', '동구', '미추홀구', '부평구', '서구', '연수구', '중구', '옹진군', '강화군'],
+            '부산': ['중구', '서구', '동구', '영도구', '부산진구', '동래구', '남구', '북구', '해운대구', '사하구', '금정구', '강서구', '연제구', '수영구', '사상구', '기장군'],
+            '대구': ['중구', '동구', '서구', '남구', '북구', '수성구', '달서구', '달성군', '군위군'],
+            '광주': ['동구', '서구', '남구', '북구', '광산구'],
+            '대전': ['동구', '중구', '서구', '유성구', '대덕구'],
+            '울산': ['중구', '남구', '동구', '북구', '울주군'],
+            '세종': ['세종시 전역'],
+            '강원': ['강원 전역'], '충북': ['충북 전역'], '충남': ['충남 전역'], '전북': ['전북 전역'], '전남': ['전남 전역'], 
+            '경북': ['경북 전역'], '경남': ['경남 전역'], '제주': ['제주 전역'], '해외': ['해외 전역'], '기타': ['상관 없음']
+          }
+        };
+        
+        Object.keys(data).forEach(id => {
+            if (id !== 'cities' && id.startsWith('opt')) {
+                const container = document.getElementById(id);
+                if (container && data[id]) {
+                    data[id].forEach(text => {
+                        const btn = createOptionButton(text);
+                        container.appendChild(btn);
+                    });
+                }
+            }
+        });
+
+        function createOptionButton(text) {
+            const btn = document.createElement('button');
+            btn.className = 'option-button';
+            btn.textContent = text;
+            btn.addEventListener('click', handleOptionClick);
+            return btn;
+        }
+
+        function handleOptionClick(event) {
+            const btn = event.target;
+            const parent = btn.closest('.question');
+            const parentId = parent.id;
+            
+            parent.querySelectorAll('.option-button').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            if (parentId === 'q4') {
+                selectedRegion = btn.textContent;
+                generateCityOptions(selectedRegion);
+                setTimeout(() => showNext(), 200);
+            } else if (parentId === 'q5') {
+                setTimeout(() => showNext(true), 200); 
+            } else {
+                setTimeout(() => showNext(), 200);
+            }
+        }
+
+        function generateCityOptions(region) {
+            const cityContainer = document.getElementById('opt5');
+            cityContainer.innerHTML = '';
+            const cities = data.cities[region] || ['지역 상세 없음'];
+            
+            cities.forEach(city => {
+                const btn = createOptionButton(city);
+                cityContainer.appendChild(btn);
+            });
+        }
+
+        function showNext(isLastStep = false) {
+          const isQ4 = questions[current].id === 'q4';
+          
+          questions[current].classList.remove('active');
+          current++;
+          
+          if (isQ4) {
+              const cityList = data.cities[selectedRegion];
+              if (!cityList || cityList.length <= 1) {
+                  current++;
+              }
+          }
+
+          if (current < questions.length) {
+            questions[current].classList.add('active');
+          }
+          
+          if (current === questions.length - 1 || isLastStep) summarize();
+          
+          document.querySelector('main').scrollTop = 0;
+        }
+
+        function summarize() {
+          answers = [];
+          document.querySelectorAll('#quiz-section .option-button.active').forEach(btn => {
+            answers.push(btn.textContent);
+          });
+          document.getElementById('summary').textContent = `선택하신 내용: ${answers.join(' > ')}`;
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            resetQuiz(); 
+            if (questions.length > 0) {
+                questions[0].classList.add('active'); 
+            }
+        });
+
+        document.getElementById('sendSMS').addEventListener('click', () => {
+          if (answers.length === 0) {
+              alert('상담 내용을 먼저 선택해 주세요.');
+              return;
+          }
+          const text = encodeURIComponent(`[DHC솔루션 상담요청]\n선택 내용: ${answers.join(' > ')}\n\n(담당자 연락을 위한 고객사/이름/연락처를 추가해 주세요.)`);
+          window.location.href = `sms:01057138417?body=${text}`;
+        });
+    </script>
+</body>
+</html>
