@@ -1,62 +1,64 @@
 /*
  * 주식회사 디에이치씨솔루션 웹사이트 통합 스타일 시트
- * - 모든 페이지의 공통 디자인 및 개별 페이지 전용 디자인 포함
+ * - 크린메이트_index 이미지 디자인 컨셉 반영
  */
 
-/* ========================== [공통 기본 스타일] ========================== */
+/* ========================== [기본 설정 및 폰트] ========================== */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
 body {
     margin: 0;
-    font-family: 'Pretendard', sans-serif;
-    background-color: #f0f2f5; /* 밝고 깨끗한 배경 */
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #f8f8f8; /* 크린메이트 배경색에 가깝게 */
     color: #333;
     line-height: 1.6;
-    -webkit-text-size-adjust: 100%; /* iOS 텍스트 크기 자동 조절 방지 */
-    overflow-x: hidden; /* 가로 스크롤 방지 */
-    padding-top: 100px; /* 헤더 공간 확보 (모바일 기본, JS로 동적 조절) */
-    padding-bottom: 70px; /* 하단 메뉴 공간 확보 */
+    -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
+    padding-top: 100px; /* 헤더 높이만큼 여백 (JS로 동적 조정) */
+    padding-bottom: 70px; /* 하단 메뉴 공간 */
 }
 main {
-    padding: 20px 15px;
-    max-width: 960px; /* 최대 너비 확장 */
+    padding: 20px 0; /* 좌우 패딩 제거, 컨텐츠 섹션에서 관리 */
+    max-width: 1000px; /* 최대 너비 증가 */
     margin: 0 auto;
 }
 section {
     background: #fff;
-    padding: 30px 25px; /* 패딩 증가 */
-    margin-bottom: 25px; /* 마진 증가 */
-    border-radius: 10px; /* 둥근 모서리 증가 */
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08); /* 그림자 강조 */
+    padding: 30px 25px;
+    margin-bottom: 25px;
+    border-radius: 8px; /* 크린메이트는 좀 더 각진 형태 */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* 그림자 강조 */
     text-align: left;
+    max-width: 960px; /* 섹션 내부 최대 너비 */
+    margin-left: auto;
+    margin-right: auto;
 }
 h2 {
-    color: #0a4f91; /* 메인 블루 계열 */
+    color: #2c3e50; /* 크린메이트 타이틀 색상 (어두운 파랑/회색) */
     text-align: center;
     margin-top: 0;
-    padding-bottom: 15px; /* 패딩 증가 */
+    padding-bottom: 15px;
     border-bottom: 2px solid #e0e0e0;
-    font-weight: 800;
-    font-size: 26px; /* 폰트 크기 증가 */
+    font-weight: 700; /* 크린메이트 폰트 두께 */
+    font-size: 28px; /* 크린메이트 타이틀 크기 */
     line-height: 1.3;
 }
 h3 {
-    color: #333; /* 좀 더 어두운 색 */
-    border-left: 6px solid #00bfa5; /* 포인트 컬러 유지 */
+    color: #2c3e50;
+    border-left: 5px solid #009688; /* 크린메이트 그린 계열 */
     padding-left: 12px;
-    margin-top: 35px; /* 마진 증가 */
+    margin-top: 35px;
     margin-bottom: 15px;
     font-weight: 700;
-    font-size: 20px; /* 폰트 크기 증가 */
+    font-size: 22px;
 }
-p {
+p, ul {
     font-size: 16px;
     color: #555;
     line-height: 1.7;
 }
 ul {
     padding-left: 25px;
-    font-size: 16px;
-    color: #555;
-    line-height: 1.7;
 }
 ul li {
     margin-bottom: 8px;
@@ -82,54 +84,53 @@ header {
     background: #fff;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     z-index: 1000;
-    padding: 0; /* 상단 헤더 패딩 제거 */
+    padding: 0;
 }
 header .logo-container {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px 15px;
-    min-height: 50px; /* 로고 컨테이너 최소 높이 설정 */
+    min-height: 50px;
 }
 header img { 
-    height: 40px; /* 로고 크기 살짝 증가 */
+    height: 45px; /* 로고 크기 조정 */
     width: auto;
 }
 .main-menu {
     display: flex;
-    justify-content: flex-start; /* 왼쪽 정렬 */
+    justify-content: flex-start;
     flex-wrap: nowrap;
-    overflow-x: auto; /* 모바일 가로 스크롤 허용 */
-    -webkit-overflow-scrolling: touch; /* iOS 부드러운 스크롤 */
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     border-top: 1px solid #eee;
-    background-color: #f7f7f7; /* 메뉴 배경색 변경 */
-    padding: 0 10px; /* 양쪽 패딩 추가 */
-    white-space: nowrap; /* 메뉴 항목 줄바꿈 방지 */
+    background-color: #f7f7f7;
+    padding: 0 10px;
+    white-space: nowrap;
 }
 .menu-btn {
-    padding: 12px 18px; /* 패딩 증가 */
+    padding: 12px 18px;
     color: #555;
     text-decoration: none;
-    font-size: 15px; /* 폰트 크기 증가 */
+    font-size: 15px;
     font-weight: 500;
     white-space: nowrap;
     transition: color 0.2s, background-color 0.2s, border-bottom 0.2s;
-    display: flex; /* 버튼 중앙 정렬 */
+    display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0; /* 항목 축소 방지 */
+    flex-shrink: 0;
 }
 .menu-btn.active {
-    color: #0a4f91; /* 활성 메뉴 색상 변경 */
+    color: #009688; /* 크린메이트 활성 메뉴 색상 */
     font-weight: 700;
-    border-bottom: 3px solid #0a4f91; /* 활성 메뉴 하단 테두리 강조 */
-    background-color: #e6f0fa; /* 활성 메뉴 배경색 */
+    border-bottom: 3px solid #009688;
+    background-color: #e0f2f1; /* 크린메이트 활성 메뉴 배경색 */
 }
 .menu-btn:hover {
-    color: #0a4f91;
-    background-color: #f0f2f5;
+    color: #009688;
+    background-color: #e8f4f3;
 }
-
 
 /* ========================== [하단 고정 메뉴바 (모바일용)] ========================== */
 .fixed-bottom-menu {
@@ -137,11 +138,11 @@ header img {
     bottom: 0;
     left: 0;
     width: 100%;
-    background: #0a4f91; /* 하단 메뉴바 배경색 변경 */
+    background: #009688; /* 크린메이트 하단 메뉴바 배경색 */
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 65px; /* 높이 증가 */
+    height: 65px;
     box-shadow: 0 -4px 15px rgba(0,0,0,0.15);
     z-index: 1000;
 }
@@ -153,133 +154,127 @@ header img {
     justify-content: center;
     color: #fff;
     text-decoration: none;
-    font-size: 13px; /* 폰트 크기 증가 */
+    font-size: 13px;
     font-weight: 600;
     height: 100%;
     transition: background-color 0.2s;
 }
 .bottom-btn:hover {
-    background-color: #1a5e9e; /* 호버 색상 */
+    background-color: #00796b; /* 호버 색상 */
 }
 .bottom-btn i {
-    font-size: 22px; /* 아이콘 크기 증가 */
+    font-size: 22px;
     margin-bottom: 4px;
 }
 .bottom-btn span {
-    display: block; /* 텍스트가 여러 줄일 경우 대비 */
+    display: block;
 }
 .bottom-btn.call { background-color: #e74c3c; } /* 전화 버튼 색상 */
 .bottom-btn.onestop { background-color: #27ae60; } /* 원스톱 버튼 색상 */
 .bottom-btn.home { background-color: #3498db; } /* 홈 버튼 색상 */
 
-
 /* ========================== [PC 환경 최적화 (768px 이상)] ========================== */
 @media (min-width: 768px) {
     body {
-        padding-top: 100px; /* PC에서는 헤더 높이만큼만 패딩 */
+        padding-top: 100px;
     }
     header {
         padding: 0;
     }
     header .logo-container {
-        justify-content: space-between; /* 로고 왼쪽, 메뉴 오른쪽 */
+        justify-content: space-between;
         max-width: 960px;
         margin: 0 auto;
-        padding: 10px 0; /* PC에서는 로고 컨테이너 좌우 패딩 제거 */
+        padding: 10px 0;
     }
     header img {
-        height: 45px; /* PC에서 로고 크기 증가 */
+        height: 50px; /* PC에서 로고 크기 증가 */
     }
     .main-menu {
         border-top: none;
-        background-color: #fff; /* PC 메뉴 배경색 */
-        padding: 0; /* PC에서는 메뉴 좌우 패딩 제거 */
-        justify-content: flex-end; /* PC에서는 메뉴 항목 오른쪽 정렬 */
-        position: absolute; /* PC에서는 로고 옆에 배치 */
+        background-color: #fff;
+        padding: 0;
+        justify-content: flex-end;
+        position: absolute;
         top: 0;
         right: 0;
-        height: 65px; /* 로고 컨테이너 높이와 맞춤 */
+        height: 65px;
         align-items: center;
-        overflow-x: visible; /* PC에서는 스크롤 필요 없음 */
+        overflow-x: visible;
     }
     .main-menu .menu-btn {
         font-size: 16px;
-        padding: 10px 15px; /* PC 메뉴 항목 패딩 조정 */
+        padding: 10px 15px;
     }
     .fixed-bottom-menu {
-        display: none; /* PC에서는 하단 메뉴 숨김 */
+        display: none;
     }
 }
 
-
-/* ========================== [페이지별 전용 스타일] ========================== */
+/* ========================== [페이지별 전용 스타일 - 크린메이트_index 반영] ========================== */
 
 /* 1. index.html (홈) */
 .main-hero-section {
-    background: linear-gradient(135deg, #e0f2f7 0%, #d4ebf5 100%); /* 그라데이션 배경 */
+    background: #fff; /* 크린메이트는 흰색 배경 */
     text-align: center;
-    padding: 50px 20px;
-    border-radius: 10px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    padding: 0; /* 내부 패딩은 div로 관리 */
+    border-radius: 0; /* 크린메이트는 라운드 없음 */
+    box-shadow: none; /* 크린메이트는 섹션 그림자가 없음 */
     margin-bottom: 30px;
     position: relative;
     overflow: hidden;
+    max-width: none; /* 전체 너비 사용 */
+    margin-left: 0;
+    margin-right: 0;
 }
-.main-hero-section::before { /* 배경에 은은한 패턴 추가 */
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23add8e6' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0 20v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zm0 20v-4H4v4H0v2h4v4h2v-4h4v-2H6zM36 4v-4h-2v4h-4v2h4v4h2v-4h4V6h-4zM6 4v-4H4v4H0v2h4v4h2V6h4V4H6zM26 14v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM16 44v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-20v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM46 14v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0 20v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0 20v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM26 44v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0 10v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4z'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    opacity: 0.2;
-    z-index: 0;
+.main-hero-content { /* 이미지와 텍스트를 감싸는 내부 div */
+    max-width: 1000px; /* 메인 컨텐츠 최대 너비 */
+    margin: 0 auto;
+    padding: 30px 20px; /* 내부 패딩 */
 }
 .main-hero-section h2 {
     border-bottom: none;
-    color: #0a4f91;
-    font-size: 32px; /* 메인 타이틀 크기 증가 */
+    color: #2c3e50; /* 크린메이트 타이틀 색상 */
+    font-size: 38px; /* 메인 타이틀 크기 강조 */
     font-weight: 900;
-    margin-bottom: 10px;
-    position: relative; /* z-index를 위해 */
-    z-index: 1;
+    margin-bottom: 15px;
+    line-height: 1.2;
 }
 .main-hero-section p {
-    font-size: 18px;
+    font-size: 19px; /* 메인 설명 폰트 크기 */
     font-weight: 500;
-    color: #333;
-    margin-bottom: 25px;
-    position: relative; /* z-index를 위해 */
-    z-index: 1;
+    color: #444;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+.main-hero-section p:last-of-type {
+    margin-bottom: 30px; /* 마지막 문단 아래 여백 */
 }
 .main-image {
     width: 100%;
     height: auto;
-    max-height: 350px; /* 최대 높이 증가 */
-    object-fit: cover;
-    border-radius: 10px;
+    max-height: 450px; /* 이미지 최대 높이 증가 */
+    object-fit: contain; /* 이미지 비율 유지, 공간에 맞춤 (크린메이트처럼) */
+    border-radius: 0; /* 크린메이트는 이미지 라운드 없음 */
     margin-bottom: 0;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-    position: relative; /* z-index를 위해 */
-    z-index: 1;
+    box-shadow: none; /* 이미지 그림자 제거 */
 }
 
 .value-propositions {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px; /* 간격 증가 */
+    gap: 20px;
     justify-content: center;
     margin-top: 30px;
 }
 .value-item {
-    flex: 1 1 280px; /* 아이템 너비 조정 */
-    background: #fdfdfd; /* 배경색 변경 */
+    flex: 1 1 280px;
+    background: #fdfdfd;
     border: 1px solid #eee;
-    padding: 25px; /* 패딩 증가 */
+    padding: 25px;
     border-radius: 8px;
     text-align: center;
-    min-height: 180px; /* 최소 높이 증가 */
+    min-height: 180px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -288,9 +283,9 @@ header img {
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 .value-item h4 {
-    color: #0a4f91; /* 포인트 색상 */
+    color: #009688; /* 크린메이트 포인트 색상 */
     margin-top: 0;
-    font-size: 20px; /* 폰트 크기 증가 */
+    font-size: 20px;
     font-weight: 700;
     margin-bottom: 10px;
 }
@@ -303,7 +298,7 @@ header img {
 /* 2. onestop.html (원스톱 상담) */
 #quiz-section {
     background: #fff;
-    padding: 30px; /* 패딩 증가 */
+    padding: 30px;
     border-radius: 12px;
     box-shadow: 0 0 20px rgba(0,0,0,0.1);
     text-align: center;
@@ -311,85 +306,85 @@ header img {
 .question {
     display: none;
     animation: fadeIn 0.5s ease-in-out;
-    min-height: 300px; /* 최소 높이 증가 */
+    min-height: 300px;
     padding: 15px;
-    display: flex; /* 내부 요소들을 flex로 정렬 */
+    display: flex;
     flex-direction: column;
-    justify-content: center; /* 세로 중앙 정렬 */
-    align-items: center; /* 가로 중앙 정렬 */
+    justify-content: center;
+    align-items: center;
 }
 .question.active {
-    display: flex; /* flex로 활성화 */
+    display: flex;
 }
 .question h3 {
     border-left: none;
-    color: #0a4f91; /* 퀴즈 질문 색상 */
-    font-size: 24px; /* 폰트 크기 증가 */
+    color: #2c3e50; /* 퀴즈 질문 색상 */
+    font-size: 24px;
     margin-bottom: 25px;
     text-align: center;
     font-weight: 800;
-    max-width: 100%; /* 너비 제한 해제 */
+    max-width: 100%;
 }
 .options {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 12px; /* 간격 증가 */
+    gap: 12px;
     margin-top: 20px;
-    width: 100%; /* 옵션 컨테이너 너비 확장 */
+    width: 100%;
 }
 .option-button {
-    background-color: #f0f4f8; /* 버튼 배경색 변경 */
+    background-color: #f0f4f8;
     border: 1px solid #dcdfe4;
     color: #444;
-    padding: 12px 22px; /* 패딩 증가 */
+    padding: 12px 22px;
     border-radius: 30px;
-    font-size: 16px; /* 폰트 크기 증가 */
+    font-size: 16px;
     transition: all 0.3s ease;
     cursor: pointer;
-    flex-grow: 1; /* 너비 확장 허용 */
-    max-width: 48%; /* 두 개씩 정렬 */
+    flex-grow: 1;
+    max-width: 48%;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    white-space: normal; /* 텍스트 줄바꿈 허용 */
+    white-space: normal;
 }
 .option-button:hover {
     background-color: #e0e8f0;
     border-color: #cdd4dc;
 }
 .option-button.active {
-    background-color: #0a4f91; /* 활성 버튼 배경색 */
+    background-color: #009688; /* 활성 버튼 배경색 */
     color: #fff;
     border: none;
-    box-shadow: 0 0 10px rgba(10, 79, 145, 0.5); /* 그림자 강조 */
+    box-shadow: 0 0 10px rgba(0, 150, 136, 0.5);
     transform: translateY(-2px);
 }
-@media (max-width: 480px) { /* 작은 모바일에서 버튼 전체 너비 사용 */
+@media (max-width: 480px) {
     .option-button {
         max-width: 90%;
     }
 }
 #summary {
-    background: #e6f7ff; /* 요약 배경색 변경 */
+    background: #e0f2f1; /* 요약 배경색 */
     padding: 20px;
-    border: 1px dashed #0a4f91; /* 테두리 색상 변경 */
+    border: 1px dashed #009688; /* 테두리 색상 */
     border-radius: 10px;
     margin-top: 25px;
     word-break: break-all;
     text-align: left;
     font-size: 15px;
     color: #333;
-    min-height: 80px; /* 최소 높이 */
+    min-height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 #sendSMS {
-    background-color: #e74c3c; /* 전화 버튼 색상 */
+    background-color: #e74c3c;
     color: #fff;
     border: none;
     border-radius: 30px;
-    padding: 18px 30px; /* 패딩 증가 */
-    font-size: 17px; /* 폰트 크기 증가 */
+    padding: 18px 30px;
+    font-size: 17px;
     cursor: pointer;
     margin: 25px 0 10px 0;
     font-weight: 700;
@@ -413,23 +408,23 @@ header img {
 }
 .solution-list li {
     background: #fdfdfd;
-    padding: 25px; /* 패딩 증가 */
+    padding: 25px;
     margin-bottom: 20px;
     border-radius: 8px;
-    border-left: 6px solid #00bfa5;
+    border-left: 6px solid #009688; /* 크린메이트 그린 */
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 .solution-list h4 {
-    color: #0a4f91;
+    color: #2c3e50;
     margin-top: 15px;
-    font-size: 19px; /* 폰트 크기 증가 */
+    font-size: 19px;
     font-weight: 700;
 }
 
 /* 4. company.html (회사 소개) */
 address {
     font-style: normal;
-    background: #f0f4f8; /* 배경색 변경 */
+    background: #f0f4f8;
     padding: 20px;
     border-radius: 8px;
     margin-top: 25px;
@@ -448,7 +443,7 @@ address {
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 .tech-feature h4 {
-    color: #0a4f91;
+    color: #2c3e50;
     font-size: 19px;
     margin-top: 15px;
     font-weight: 700;
@@ -458,13 +453,13 @@ address {
 .gallery {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px; /* 간격 유지 */
+    gap: 15px;
     justify-content: center;
     padding-top: 15px;
 }
 .gallery img {
     width: 100%;
-    max-width: 450px; /* 최대 너비 증가 */
+    max-width: 450px;
     height: auto;
     object-fit: cover;
     border-radius: 8px;
@@ -476,6 +471,6 @@ address {
 }
 @media (min-width: 600px) {
      .gallery img {
-         width: calc(50% - 10px); /* 2열 정렬 시 간격 고려 */
+         width: calc(50% - 10px);
      }
 }
