@@ -3,178 +3,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>실적 - 주식회사 디에이치씨솔루션</title>
+    <title>주식회사 디에이치씨솔루션 - 기업 위생 가전 전문</title>
     <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@100;400;700;900&display=swap" rel="stylesheet">
-    <style>
-        /* [공통 스타일: index.html의 style 태그 내용을 그대로 복사합니다.] */
-        body {
-            margin: 0;
-            font-family: 'Pretendard', sans-serif;
-            background-color: #f7f7f7;
-            color: #333;
-            padding-top: 60px;
-            padding-bottom: 70px;
-            line-height: 1.6;
-        }
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: #fff;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            z-index: 1000;
-            padding: 10px 0;
-            text-align: center;
-        }
-        header .logo-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 5px 15px;
-        }
-        header img { 
-            height: 35px;
-            width: auto;
-        }
-        .main-menu {
-            display: flex;
-            justify-content: center;
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            border-top: 1px solid #eee;
-            background-color: #fff;
-            padding: 8px 0;
-        }
-        .menu-btn {
-            padding: 8px 15px;
-            color: #555;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            white-space: nowrap;
-            transition: color 0.2s, background-color 0.2s;
-        }
-        .menu-btn.active {
-            color: #00bfa5;
-            font-weight: 700;
-            border-bottom: 2px solid #00bfa5;
-        }
-        main {
-            padding: 20px 15px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        section {
-            background: #fff;
-            padding: 25px 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            text-align: left;
-        }
-        h2 {
-            color: #00bfa5;
-            text-align: center;
-            margin-top: 0;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #f0f0f0;
-            font-weight: 800;
-        }
-        h3 {
-            color: #444;
-            border-left: 5px solid #00bfa5;
-            padding-left: 10px;
-            margin-top: 30px;
-            font-weight: 700;
-        }
-        .solution-img {
-            width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px 0;
-        }
-        .fixed-bottom-menu {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: #333;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            height: 60px;
-            box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
-            z-index: 1000;
-        }
-        .bottom-btn {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            text-decoration: none;
-            font-size: 12px;
-            font-weight: 600;
-            height: 100%;
-            transition: background-color 0.2s;
-        }
-        .bottom-btn:hover {
-            background-color: #444;
-        }
-        .bottom-btn.onestop { background-color: #00bfa5; }
-        .bottom-btn.call { background-color: #ff5722; }
-        .bottom-btn.home { background-color: #4CAF50; }
-        @media (min-width: 768px) {
-            header {
-                padding: 5px 0;
-            }
-            header .logo-container {
-                justify-content: space-between;
-                max-width: 900px;
-                margin: 0 auto;
-                padding: 0 15px;
-            }
-            .main-menu {
-                border-top: none;
-            }
-            header img {
-                height: 40px;
-            }
-            body {
-                padding-top: 100px;
-            }
-            .fixed-bottom-menu {
-                display: none;
-            }
-            .menu-btn {
-                font-size: 16px;
-                padding: 10px 20px;
-            }
-        }
-        /* 실적 페이지 전용 스타일 */
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-            padding-top: 10px;
-        }
-        .gallery img {
-            width: 100%;
-            max-width: 400px; /* PC에서 이미지 크기 제한 */
-            height: auto;
-            object-fit: cover;
-            border-radius: 6px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        @media (min-width: 600px) {
-             .gallery img {
-                 width: 48%; /* 2개씩 배치 */
-             }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -182,37 +13,70 @@
             <img src="image/0005.png" alt="주식회사 디에이치씨솔루션 로고" />
         </div>
         <nav class="main-menu">
-            <a href="index.html" class="menu-btn">홈</a>
+            <a href="index.html" class="menu-btn active">홈</a>
             <a href="company.html" class="menu-btn">회사 소개</a>
             <a href="solution.html" class="menu-btn">솔루션</a>
             <a href="tech.html" class="menu-btn">기술</a>
-            <a href="portfolio.html" class="menu-btn active">실적</a>
+            <a href="portfolio.html" class="menu-btn">실적</a>
             <a href="onestop.html" class="menu-btn">원스톱 상담</a>
         </nav>
     </header>
 
     <main>
-        <section>
-            <h2>주요 고객사 및 실적</h2>
-            <p style="text-align: center; color: #777;">
-                신뢰할 수 있는 기술력과 체계적인 보고 시스템으로 국내 유수의 기업들이 당사와 함께하고 있습니다.
+        <section style="background: #eefaf9; text-align: center; padding: 40px 20px; border: 1px solid #00bfa5;">
+            <h2 style="border-bottom: none; color: #00897b;">
+                기업 위생 가전 소독 관리 전문 솔루션
+            </h2>
+            <p style="font-size: 18px; font-weight: 500; color: #555;">
+                **냉장고, 제빙기, 전자레인지**는 직원의 건강을 위협하는 <br>보이지 않는 감염 위험 구역입니다.
             </p>
+            <p style="font-size: 15px; color: #777;">
+                주식회사 디에이치씨솔루션은 전문화된 관리 시스템으로 쾌적하고 안전한 근무 환경을 제공합니다.
+            </p>
+            <img src="image/main_focus_group.jpg" alt="핵심 위생 가전 집중 관리 이미지 (냉장고, 제빙기, 전자레인지)" class="main-image">
+        </section>
 
-            <h3>작업 전/후 포트폴리오 (16:9 이미지 사용 권장)</h3>
-            <div class="gallery">
-                <img src="image/portfolio_refrigerator_before.jpg" alt="기업 냉장고 청소 전후 이미지 1">
-                <img src="image/portfolio_refrigerator_after.jpg" alt="기업 냉장고 청소 전후 이미지 2">
-                <img src="image/portfolio_icemachine_before.jpg" alt="제빙기 분해 청소 전후 이미지 1">
-                <img src="image/portfolio_icemachine_after.jpg" alt="제빙기 분해 청소 전후 이미지 2">
-                <img src="image/portfolio_microwave_before.jpg" alt="전자레인지 소독 전후 이미지 1">
-                <img src="image/portfolio_microwave_after.jpg" alt="전자레인지 소독 전후 이미지 2">
-                <img src="image/portfolio_atp_report.jpg" alt="ATP 위생 점검 보고서 샘플 이미지">
-                <img src="image/portfolio_team_work.jpg" alt="전문가 작업 팀 이미지">
+        <section>
+            <h2>💡 제안 배경 및 필요성: 오염 가속과 관리의 한계</h2>
+            <p>직원들의 건강과 복지, 그리고 기업의 생산성은 안전하고 쾌적한 근무 환경에서 시작됩니다. 특히 다중이용 시설인 기업 사무실에서 공동으로 사용하는 위생 가전은 **"보이지 않는 감염 위험 구역"**으로, 철저한 관리가 이루어지지 않을 경우 심각한 위생 문제와 감염병 확산의 온상이 될 수 있습니다. (중략) </p>
+            
+            <h3>냉장고: 교차 오염의 온상</h3>
+            <ul style="list-style: disc; padding-left: 20px; font-size: 15px;">
+                <li>다양한 음식물과 음료가 보관되며, 국물, 변질된 음식물 등으로 인한 **세균 및 곰팡이 증식**이 매우 빠르게 일어납니다.</li>
+                <li>손잡이, 고무패킹 등은 일상적인 청소에서 누락되어 **식중독균(살모넬라, 리스테리아)**의 주요 서식처가 됩니다.</li>
+            </ul>
+
+            <h3>제빙기: 미생물 번식의 최적 환경</h3>
+            <ul style="list-style: disc; padding-left: 20px; font-size: 15px;">
+                <li>얼음과 물이 상시 접촉하는 **고온다습한 환경**으로, **물때, 바이오필름, 곰팡이**가 쉽게 형성됩니다.</li>
+                <li>특히 물탱크, 배관, 아이스 스쿱 등에서 발견되는 **효모, 대장균** 등은 음용수 안전을 심각하게 위협합니다.</li>
+            </ul>
+
+            <h3>전자레인지: 잔류 오염물과 박테리아</h3>
+            <ul style="list-style: disc; padding-left: 20px; font-size: 15px;">
+                <li>음식물 조리 중 튀는 잔여물, 습기, 열이 결합하여 **박테리아가 빠르게 번식**하는 환경을 조성합니다.</li>
+                <li>내부 벽면, 회전판 틈새 등에 낀 오염물은 악취와 함께 위생적인 문제를 발생시킵니다.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>🏆 디에이치씨솔루션의 3가지 핵심 가치</h2>
+            <div class="value-propositions">
+                <div class="value-item">
+                    <h4>전문성 & 친환경</h4>
+                    <p>인체에 무해한 **친환경 살균제**와 전문 장비를 이용한 **분해 소독**으로 오염원을 근본적으로 제거합니다. 잔류 걱정 없는 안전한 환경을 보장합니다.</p>
+                </div>
+                <div class="value-item">
+                    <h4>원스톱 & 예방 정비</h4>
+                    <p>단순 청소를 넘어, **위생 진단, 소독, 예방 정비**까지 통합 관리하는 MOS(Maintenance Optimization Solution) 시스템을 적용하여 고장률을 감소시킵니다.</p>
+                </div>
+                <div class="value-item">
+                    <h4>투명한 보고서</h4>
+                    <p>**ATP 수치 측정** 및 작업 전/후 사진을 포함한 **디지털 점검 보고서**를 제공하여, 관리의 투명성과 위생 개선 효과를 정량적으로 확인시켜 드립니다.</p>
+                </div>
             </div>
-
-            <h3 style="margin-top: 40px;">주요 고객사 (로고 업로드 예정)</h3>
-            <p style="text-align: center;">
-                대기업 계열사, 대형 오피스 빌딩, 종합병원, 다수 프랜차이즈 본사 등 <br>최고 수준의 위생 기준이 요구되는 시설에 서비스를 제공하고 있습니다.
+            <p style="text-align: center; margin-top: 30px; font-size: 16px; color: #00bfa5; font-weight: 700;">
+                귀사의 핵심 위생 가전, 이제 전문가에게 맡기고 안심하십시오.
             </p>
         </section>
     </main>
